@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -7,7 +8,7 @@ targetCompatibility = JavaVersion.VERSION_1_8
 
 group = "maow"
 archivesBaseName = "sdf2xml"
-version = "1.0.0"
+version = "1.1.0"
 
 repositories {
     mavenCentral()
@@ -15,7 +16,11 @@ repositories {
 }
 
 dependencies {
-    implementation "dom4j:dom4j:1.6.1"
-    implementation "com.github.maowcraft:javasdf:master-SNAPSHOT"
-    implementation "org.apache.commons:commons-text:1.9"
+    implementation "dom4j:dom4j:${project.dom4j_version}"
+    implementation "com.github.maowcraft:javasdf:${project.javasdf_version}"
+    implementation "com.miglayout:miglayout:${project.miglayout_version}"
+}
+
+application {
+    mainClass = "maow.sdf2xml.SDF2XML"
 }
